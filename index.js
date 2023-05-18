@@ -25,6 +25,13 @@ app.post('/api',(req,res) => {
     })
 })
 
+app.delete('/api', (req, res) => { 
+    var name = req.body.name;
+    sql.conSQL(`DELETE FROM Login Where Name = ${name}`, (recordset) => {
+        res.send(recordset)
+    })
+})
+
 app.listen( process.env.PORT ||PORT, () => {
 	console.log(`Running in port ${process.env.PORT}`);
 });
