@@ -9,11 +9,18 @@ app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 app.get('/', (req, res) => {
-    res.json({ name: "Hello" })
+    res.json({ name: "Tuan" })
 })
 
 app.get('/api', (req, res) => {
     sql.conSQL("Select * from Login", (recordset) => {
+        res.send(recordset)
+    })
+})
+
+app.post('/api',(req,res) => {
+    var name = req.body.name;
+    sql.conSQL(`INSERT INTO Login Values ("${name}")`, (recordset) => { 
         res.send(recordset)
     })
 })
