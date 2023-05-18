@@ -26,4 +26,5 @@ app.post('/api',(req,res) => {
 })
 
 app.listen( process.env.PORT ||PORT, () => {
+	console.log(`Running in port ${process.env.PORT}`);
 });
