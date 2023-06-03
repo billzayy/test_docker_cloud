@@ -1,7 +1,7 @@
 const express = require('express');
 const sql = require('./sql')
 // Constants
-const PORT = 3000;
+const PORT = 8080;
 
 // App
 const app = express();
